@@ -46,6 +46,7 @@ public class GameManagerScript : MonoBehaviour
         nb_turn = 0;
     }
 
+	//Lancement du jeu une fois qu'on clique sur "GO !"
     public void Launch()
     {
         play.gameObject.SetActive(false);
@@ -57,6 +58,7 @@ public class GameManagerScript : MonoBehaviour
         firstPlay = false;
     }
 
+	//Dans cette fonction le joueur et l'IA joue tour à tour
     public void ComputePlay(Image img)
     {
         if(gameLaunched)
@@ -88,6 +90,7 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+	//Cette fonction met à jour la partie graphique du jeu
     public void UpdateGrid(bool turn, Image image)
     {
         if (turn)
@@ -100,6 +103,7 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+	//Cette fonction convertie la grille de jeu en matrice
     public void gridMapToMat(Dictionary<int, (bool, bool)> gridmap)
     {
         int i = 0;
@@ -129,6 +133,7 @@ public class GameManagerScript : MonoBehaviour
     }
 
     //player : si true, joueur 1 (circle) sinon j2 (cross)
+	//Cette fonction vérifie si le jouer ou l'IA a gagné.
     public void CheckState(bool turn, int x, int y)
     {
         int player;
@@ -216,6 +221,7 @@ public class GameManagerScript : MonoBehaviour
             ResetGrid();
     }
 
+	//Cette fonction permet de modifier l'UI (le score des joueurs, ...) en cas de victoire
     public void Win(int player)
     {
         if(player == 1)
@@ -232,7 +238,7 @@ public class GameManagerScript : MonoBehaviour
         play.gameObject.SetActive(true);
         play.onClick.AddListener(Launch);
     }
-
+	//Cette fonction permet de relancer la partie avec une grille vierge
     public void ResetGrid()
     {
         foreach (Image img in grid)
@@ -244,5 +250,3 @@ public class GameManagerScript : MonoBehaviour
         nb_turn = 0;
     }
 }
-
-//Adresse 1 : rue

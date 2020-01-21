@@ -19,7 +19,7 @@ public class IA : MonoBehaviour
     {
         
     }
-
+	//Cette fonction permet a l'IA de voir le meilleur mouvement qu'il puisse faire.
     public int BestMove(int player, int[,] state, List<Image> grid)
     {
         matrix = state;
@@ -73,6 +73,7 @@ public class IA : MonoBehaviour
         return choice[Random.Range(0, choice.Count)];
     }
 
+	//Cette fonction permet a l'IA de verifier s'il peut gagner ou non.
     public bool win(int player)
     {
         if (matrix[0, 0] == player && matrix[0, 1] == player && matrix[0, 2] == player ||
